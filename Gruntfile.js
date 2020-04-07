@@ -13,7 +13,7 @@ module.exports = function(grunt) {
               sourcemap: false
 		    },
 		    files: {
-				'../css/style.css': 'scss/style.scss',
+				'./css/style.css': 'scss/style.scss',
 		    }
 		  }
 		},
@@ -38,7 +38,7 @@ module.exports = function(grunt) {
 					expand: true,
 					cwd: 'img/',
 					src: ['**/*.{png,jpg,gif}'],
-					dest: '../img/'
+					dest: './img/'
 				}]
 			}
 		}

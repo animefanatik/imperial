@@ -1,9 +1,12 @@
-@import '_function';
+@import '_functions';
 @import '_main';
 
-.fullWidth {display:block; width: 100%; padding: $secPad 0;}
+
+.fullWidth {display:block; width: 100%;}
 .fixWidth {width: 95%; max-width: 1200px; margin: 0px auto;}
 
+.caca {color: $blk;}
+/*
 
 #head {
     background: $lbl;
@@ -511,3 +514,4 @@
     }
 }    
 
+*/
