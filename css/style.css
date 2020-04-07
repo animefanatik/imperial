@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'digital-7';
+    src: url('../fonts/digital-7.woff2') format('woff2'),
+         url('../fonts/digital-7.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GothicB';
+    src: url('../fonts/gotham-bold.woff2') format('woff2'),
+         url('../fonts/gotham-bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GothicBk';
+    src: url('../fonts/gotham-black.woff2') format('woff2'),
+         url('../fonts/gotham-black.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
