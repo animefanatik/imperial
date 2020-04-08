@@ -2,11 +2,13 @@
 @include font-face(GMedium, "../fonts/gotham-medium");
 @include font-face(GBold, "../fonts/gotham-bold");
 @include font-face(GBlack, "../fonts/gotham-black");
+@include font-face(GUltra, "../fonts/gotham-black");
 
 // Fonts
 $font-medium:GMedium;
 $font-bold:GBold;
 $font-black:GBlack;
+$font-ultra:GUltra;
 $font-alt:D7;
 
 // Color palette
