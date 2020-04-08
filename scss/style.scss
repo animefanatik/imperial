@@ -5,12 +5,17 @@
     margin: 0;
     padding: 0;
 }
+
+html {
+    font-size: 5.15vw;
+}
 body {
     font-family: $font-black;
     text-align: center;
-    font-size: 95px;
+    font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
+    line-height: 1;
 }
 .fullWidth {
     display:block;
@@ -18,7 +23,7 @@ body {
 }
 .fixWidth {
     width: 95%;
-    max-width: rem(1488);
+    max-width: 1488px;
     margin: 0px auto;
 }
 
@@ -27,18 +32,34 @@ body {
     background: $blk;
     img {
         width: 50%;
-        max-width: rem(650);
-        min-width: rem(200);
+        max-width: 650px;
+        min-width: 200px;
     }   
 }
 #header {
-    padding: 65px 0;
+    padding: 65px 0 70px;
 }
 
 #body {
     background: $yll;
-    padding-top: 15vh;
-    p, h1 {margin-bottom: 60px;}
+    font-size: 1rem;
+    padding-top: 12vh;
+    p span {display: block;}
+    .bigRed {
+        strong {
+            font-size: 3.21rem;
+            color: $red;
+            letter-spacing: -0.03rem;
+        }
+        span {
+            text-transform: capitalize;
+            font-size: 1.21rem;
+        }
+    }
+    img {
+        width: 80%;
+        max-width: 1460px;
+    }
 }
 #formSec{
     display: flex;

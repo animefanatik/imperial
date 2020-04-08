@@ -2,7 +2,6 @@
 @include font-face(GMedium, "../fonts/gotham-medium");
 @include font-face(GBold, "../fonts/gotham-bold");
 @include font-face(GBlack, "../fonts/gotham-black");
-@include font-face(GUltra, "../fonts/gotham-black");
 
 // Fonts
 $font-medium:GMedium;
@@ -30,40 +29,6 @@ $blk: rgb(0, 0, 0);
 // Buttons 
 %btn {display: block; color: $wht; line-height: 1.8rem; text-align: center; text-transform: uppercase; text-decoration: none; border:1px solid; border-radius:10px; cursor: pointer; transition: background-color 500ms; }
 %btn-hover {text-decoration: underline; transition: background-color 500ms;}
-
-/*
-.btn-org {@extend %btn; background-color: $org; border-color: $orgd;}
-.btn-grn {@extend %btn; background-color: $grn; border-color: $grnd;}
-.btn-lbl {@extend %btn; background-color: $lbl; border-color: $lbld;}
-
-.btn-grn:hover {@extend %btn-hover; background: $grnd;}
-.btn-org:hover {@extend %btn-hover; background: $orgd;}
-.btn-lbl:hover {@extend %btn-hover; background: $lbld;}
-
-body {font-family: $font-main; margin: 0px;}
-.h1, .h2 {font-family: $font-alt; font-weight: 500;}
-.h3, .h4, .h5, .h6 {font-family: $font-main; font-weight: 500;}
-.h1, .h2 {line-height: 1.1;}
-.h3, .h4 {line-height: 1.3;}
-
-.block-margins {margin: 1em 0;}
-
-.italic {font-style: italic;}
-.bold {font-weight: 700;}
-
-.ulist {list-style-type: disc;}
-.olist {list-style: decimal;}
-
-h1, .h1 { @extend .h1; margin: 1em 0 0.5em; }
-h2, .h2 { @extend .h2; margin: 1em 0 0.5em; }
-h3, .h3 { @extend .h3; margin: 1em 0 0.5em; }
-h4, .h4 { @extend .h4; margin: 1em 0 0.5em; }
-h5, .h5 { @extend .h5; margin: 1em 0 0.5em; }
-h6, .h6 { @extend .h6; margin: 1em 0 0.5em; }
-p, ul, ol, pre {@extend .block-margins;}
-ul { @extend .ulist; }
-ol { @extend .olist; }
-*/
 
 // Media Queries
 @mixin s($size) {
