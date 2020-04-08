@@ -1,10 +1,12 @@
 @include font-face(D7, "../fonts/digital-7");
+@include font-face(GMedium, "../fonts/gotham-medium");
 @include font-face(GBold, "../fonts/gotham-bold");
 @include font-face(GBlack, "../fonts/gotham-black");
 
 // Fonts
-$font-main:GBold;
-$font-main-black:GBlack;
+$font-medium:GMedium;
+$font-bold:GBold;
+$font-black:GBlack;
 $font-alt:D7;
 
 // Color palette

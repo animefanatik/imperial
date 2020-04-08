@@ -16,35 +16,34 @@ module.exports = function(grunt) {
 				'./css/style.css': 'scss/style.scss',
 		    }
 		  }
-		},
-
-	  	/**
-	  	 * Watch
-	  	 */
-		watch: {
-			css: {
-				files: '**/*.scss',
-				tasks: ['sass']
-			}
-		},
-		
+		},	
 		imagemin: {
 			dynamic: {
 				options: {
-					optimizationLevel: 6, 
+					optimizationLevel: 6,
 					progressive: true
 				},
 				files: [{
 					expand: true,
-					cwd: 'img/',
+					cwd: 'images/',
 					src: ['**/*.{png,jpg,gif}'],
 					dest: './img/'
 				}]
 			}
-		}
+		},
+		
+	  	/**
+	  	 * Watch
+	  	 */
+		  watch: {
+			src: {
+				files: ['**/*.scss'],
+				tasks: ['sass']				
+			}			
+		}		
 	});
 	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
-	grunt.registerTask('default',['watch', 'imagemin']);
+	grunt.registerTask('default',['imagemin','watch']);
 }

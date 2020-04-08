@@ -1,11 +1,60 @@
 @import '_functions';
 @import '_main';
 
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: $font-bold;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.fullWidth {
+    display:block;
+    width: 100%;
+}
+.fixWidth {
+    width: 95%;
+    max-width: 1488px;
+    margin: 0px auto;
+}
 
-.fullWidth {display:block; width: 100%;}
-.fixWidth {width: 95%; max-width: 1200px; margin: 0px auto;}
+/* general styles */
+#header, #footer {
+    background: $blk;
+    img {
+        width: 30%;
+        min-width: 200px;
+    }   
+}
+#header {
+    padding: 7vh 0;
+}
 
-.caca {color: $blk;}
+#body {
+    background: $yll;
+    font-size: 4.25rem;
+    padding-top: 15vh;
+    p, h1 {margin-bottom: 60px;}
+}
+#formSec{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    .texto {
+        background: $red;
+        width: 50%;
+    }
+    .form {
+        background: $blk;
+        color: $tty;
+        width: 50%;
+    }
+}
+
 /*
 
 #head {
