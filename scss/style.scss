@@ -26,6 +26,37 @@ body {
     max-width: 1488px;
     margin: 0px auto;
 }
+.endImg {
+    display: block;
+    position: relative;
+    height: 55px;
+    bottom: 135px;
+}
+
+.btn {
+    display: block;
+    background: $blk;
+    border: 5px solid $wht;
+    border-radius: 55px;
+    padding: 28px 0;
+    width: auto;
+    max-width: 450px;
+    margin: 11% auto 0;
+    color: $yll;
+    font-size: 0.55rem;
+    text-decoration: none;
+    position: relative;
+    span {
+        display: block;
+        font-size: 0.35rem;
+    }
+    img {
+        background: url('/img/hand.png') no-repeat;
+        position: absolute;
+        right: 10px;
+        bottom: -35px;
+    }
+}
 
 /* general styles */
 #header, #footer {
@@ -67,22 +98,21 @@ body {
             z-index: 10;
         }
         .endImg {
-            display: block;
             background: url('/img/yellow-curve-up.png') repeat-x;
-            position: relative;
-            height: 55px;
-            bottom: 135px;
         }
     }
     &Mid {
-        background: url('/img/background.jpg') no-repeat fixed;
+        background: url('/img/background.jpg') no-repeat bottom fixed;
+        background-size: cover;
         color: $yll;
         padding-top: 11.75%;
         font-weight: normal;
+        overflow: hidden;
+        margin-bottom: -14.85%;
         p {
             font-size: 0.6rem;
         }
-        p:nth-child(2) {
+        & > p:nth-child(2) {
             color: $wht;
             font-size: 0.88rem;
             text-transform: capitalize;
@@ -95,21 +125,25 @@ body {
             }
         }
         ul {
-            display: flex;
-            flex-direction: row;
+            @extend %flex-row;
             flex-wrap: wrap;
             justify-content: center;
-            justify-items: center;
-            max-width: 1480;           
+            max-width: 1480px;
+            margin: 60px auto;
+            position: relative;
+            z-index: 10;
             li{
                 display: inline-block;
                 width: 30%;
                 max-width: 455px;
                 text-align: center;
-                margin: 1.5%;
+                margin: 1.5% 1.5% 3.5%;
                 position: relative;
+                text-transform: uppercase;
                 img { 
                     display: block;
+                    width: 100%;
+                    max-width: 455px;
                     border: 1px solid;
                     border-radius: 250px;
                     position: relative;
@@ -130,24 +164,64 @@ body {
                     display: block;
                     width: 205px;
                     position: absolute;
-                    bottom: 0;
+                    bottom: -40px;
                     left: calc(50% - 102px);
                     background: #000;
                     padding: 12px 0;
                     text-align: center;
-                    p{
-                        .antes {
-                            
+                    text-transform: uppercase;
+                    .cur {
+                        @extend %flex-row;
+                        align-items: center;
+                        justify-content: center;                        
+                        font-family: $font-alt;
+                        font-weight: 500;
+                        font-size: 0.76rem;
+                        i {
+                            font-family: $font-black;
+                            font-size: 0.37rem;
+                            font-style: normal;
+                            font-weight: 600;
                         }
+                    }
+                    p { 
                         font-size: 0.25rem;
                         font-weight: 600;    
+                        &.antes {
+                            @extend %flex-row;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 0.15rem;
+                            color:$wht;
+                            .cur {
+                                font-size: 0.25rem;
+                                i {
+                                    font-size: 0.15rem;
+                                    margin: 0 2px 0 3px;
+                                }
+                            }
+                        }
+                        &.tiny {
+                            color: $wht;
+                            font-size: 0.15rem;
+                        }
                     }
                 }
             }
             .red img {border-color: $red;}
             .yellow img {border-color: $yll;}
         }
-
+    }
+    &Bot {
+        text-align: center;
+        background: $yll;
+        position: relative;
+        font-size: 1rem;
+        padding-bottom: 5%;
+        .endImg {
+            background: url('/img/yellow-curve-down.png') repeat-x;
+            top: -55px;
+        }
     }
 }
 #formSec{
@@ -156,12 +230,41 @@ body {
     width: 100%;
     .texto {
         background: $red;
-        width: 50%;
+        color: $wht;
+        font-family: $font-medium;
+        font-weight: 500;
+        font-size: 0.50rem;
+        line-height: 1.1;
+        width: 60%;
+        .container {
+            @extend %flex-col;
+            width: 90%;
+            max-width: 855px;
+            margin: 0 auto;
+            h1 {
+                font-family:$font-black;
+                font-size: 0.89rem;
+                line-height: 1;
+                span {
+                    font-size: 1rem;
+                    span {
+                        color: $yll;
+                    }
+                }
+            }
+            ul {
+                @extend %flex-col;
+            }
+            .btn {
+                font-family: $font-black;
+                padding: 25px 0;
+            }            
+        }
     }
     .form {
         background: $blk;
         color: $tty;
-        width: 50%;
+        width: 40%;
     }
 }
 

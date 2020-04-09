@@ -37,13 +37,13 @@ module.exports = function(grunt) {
 	  	 */
 		  watch: {
 			src: {
-				files: ['**/*.scss'],
-				tasks: ['sass']				
+				files: ['**/*.scss', '**/*.{png,jpg,gif}'],
+				tasks: ['default']				
 			}			
 		}		
 	});
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.registerTask('default',['imagemin','watch']);
+	grunt.registerTask('default',['imagemin', 'sass', 'watch']);
 }
