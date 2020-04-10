@@ -1,5 +1,55 @@
+<?php
+$nombreErr = $cedulaErr = $telefonoErr = $emailErr = "";
+$nombre = $cedula = $telefono = $email = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["nombre"])) {
+    $nombreErr = "Nombre es requerido";
+  } else {
+    $nombre = test_input($_POST["nombre"]);
+    if (!preg_match("/^[a-zA-Z ]*$/",$nombre)) {
+      $nombreErr = "Use solo letras y espacios";
+    }
+  }
+  
+  if (empty($_POST["cedula"])) {
+    $cedulaErr = "Requiere número de cédula";
+  } else {
+    $cedula = test_input($_POST["cedula"]);
+    if (!preg_match("/^[0-9\-]*$/",$cedula)) {
+      $cedulaErr = "Use solo números y guiones";
+    }
+  }
+
+  if (empty($_POST["telefono"])) {
+    $telefonoErr = "Requiere un número de teléfono";
+  } else {
+    $telefono = test_input($_POST["telefono"]);
+    if (!preg_match("/^[0-9\-]*$/",$telefono)) {
+      $telefonoErr = "Use solo números y guiones";
+    }
+  }
+
+  if (empty($_POST["email"])) {
+    $emailErr = "Requiere un Email Válido";
+  } else {
+    $email = test_input($_POST["email"]);
+    // check if e-mail address is well-formed
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $emailErr = "Formato no válido";
+    }
+  }
+}
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -133,18 +183,35 @@
                 <p class="tty">Dejanos tus datos</p>
             </div>
         </div>
-        <form>
-            <label for="name">Nombre Completo:</label>
-            <input name="name" id="name" type="text">
-            <label for="cedula">Cédula:</label>
-            <input name="cedula" id="cedula" type="text">
-            <label for="phone">Teléfono:</label>
-            <input name="phone" id="phone" type="text">
-            <label for="mail">Correo:</label>
-            <input name="mail" id="mail" type="text">
-            <button>Enviar Ahora</button>
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+            <label>Nombre Completo:</label>
+            <input type="text" name="nombre" value="<?php echo $nombre;?>">
+            <span><?php echo $nombreErr;?></span>
+            <label>Cédula:</label>
+            <input type="text" name="cedula" value="<?php echo $cedula;?>">
+            <span><?php echo $cedulaErr;?></span>
+            <label>Teléfono:</label>
+            <input type="text" name="telefono" value="<?php echo $telefono;?>">
+            <span><?php echo $telefonoErr;?></span>
+            <label>Correo:</label>
+            <input type="text" name="email" value="<?php echo $email;?>">
+            <span><?php echo $emailErr;?></span>
+            <input type="submit" name="submit" value="Submit">
             <i>Todos los campos son requeridos</i>
         </form>
+        <div class="render">
+        <?php
+
+            echo "<h2>La información enviada es:</h2>";
+            echo $nombre;
+            echo "<br>";
+            echo $cedula;
+            echo "<br>";
+            echo $telefono;
+            echo "<br>";
+            echo $email;            
+        ?>
+        </div>
     </div>
 </div>  
 <div id="footer">
