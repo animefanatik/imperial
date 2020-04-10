@@ -43,12 +43,13 @@ body {
     max-width: 450px;
     margin: 11% auto 0;
     color: $yll;
-    font-size: 0.55rem;
+    font-size: 0.40rem;
     text-decoration: none;
     position: relative;
+    letter-spacing: 1px;
     span {
         display: block;
-        font-size: 0.35rem;
+        font-size: 0.25rem;
     }
     img {
         background: url('/img/hand.png') no-repeat;
@@ -233,18 +234,26 @@ body {
         color: $wht;
         font-family: $font-medium;
         font-weight: 500;
-        font-size: 0.50rem;
-        line-height: 1.1;
+        font-size: 0.45rem;
+        letter-spacing: 2px;
+        line-height: 1.2;
         width: 60%;
         .container {
             @extend %flex-col;
+            justify-content: center;
+            align-items: center;
             width: 90%;
-            max-width: 855px;
+            max-width: 890px;
             margin: 0 auto;
-            h1 {
+            padding-top: 12%;
+            p:nth-child(1) span {
+                letter-spacing: 4px;
+            }
+            p:nth-child(2) {
                 font-family:$font-black;
                 font-size: 0.89rem;
                 line-height: 1;
+                margin: 3.75% 0 5.5%;
                 span {
                     font-size: 1rem;
                     span {
@@ -253,19 +262,43 @@ body {
                 }
             }
             ul {
-                @extend %flex-col;
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+                row-gap: 25px;
+                margin-top:8.5%;
+                background: $blk;
+                padding: 20px 38px;
+                text-align: left;
+                li {
+                    background: url('/img/event-icons.png') no-repeat;
+                    line-height: 0.88rem;
+                    list-style: none;
+                    text-indent: 115px;
+                    &:nth-child(1){
+                        font-family: $font-black;
+                        font-size: 0.72rem;
+                    }
+                }
             }
-            .btn {
-                font-family: $font-black;
-                padding: 25px 0;
-            }            
         }
+        .btn {
+            font-family: $font-black;
+            font-size: 0.5rem;
+            padding: 25px 0;
+            margin: 0 auto;
+            span {
+                font-size: 0.30rem;
+            }
+        }            
     }
     .form {
         background: $blk;
         color: $tty;
         width: 40%;
     }
+}
+#footer {
+    background-image: linear-gradient(to bottom, $yll 50%, black 50%);
 }
 
 /*
