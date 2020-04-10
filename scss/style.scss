@@ -30,7 +30,7 @@ body {
     display: block;
     position: relative;
     height: 55px;
-    bottom: 135px;
+    bottom: 136px;
 }
 
 .btn {
@@ -38,24 +38,25 @@ body {
     background: $blk;
     border: 5px solid $wht;
     border-radius: 55px;
-    padding: 28px 0;
-    width: auto;
-    max-width: 450px;
+    padding: 25px 0;
+    width: 24%;
     margin: 11% auto 0;
     color: $yll;
-    font-size: 0.48rem;
+    font-size: 0.40rem;
     text-decoration: none;
     position: relative;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
+
     span {
         display: block;
-        font-size: 0.28rem;
+        font-size: 0.25rem;
+        letter-spacing: 0;
     }
     img {
-        background: url('/img/hand.png') no-repeat;
         position: absolute;
         right: 10px;
-        bottom: -35px;
+        bottom: -45px;
+        height: 75%;
     }
 }
 
@@ -151,22 +152,22 @@ body {
                 }
                 .titulo{
                     display: block;
-                    width: 170px;
+                    width: 39%;
                     font-size: 0.25rem;
                     font-weight: 600;
                     position: absolute;
                     top: 15px;
-                    left: calc(50% - 83px);
+                    left: 31%;
                     background: #000;
                     padding: 12px 0;
                     text-align: center;
                 }
                 .hablador{
                     display: block;
-                    width: 205px;
+                    width: 46%;
                     position: absolute;
                     bottom: -40px;
-                    left: calc(50% - 102px);
+                    left: 27%;
                     background: #000;
                     padding: 12px 0;
                     text-align: center;
@@ -221,7 +222,7 @@ body {
         padding-bottom: 5%;
         .endImg {
             background: url('/img/yellow-curve-down.png') repeat-x;
-            top: -55px;
+            top: -54px;
         }
     }
 }
@@ -247,8 +248,11 @@ body {
             max-width: 890px;
             margin: 0 auto;
             padding-top: 12%;
-            p:nth-child(1) span {
-                letter-spacing: 4px;
+            p:nth-child(1){
+                width: 100%;
+                span {
+                    letter-spacing: 4px;
+                }
             }
             p:nth-child(2) {
                 font-family:$font-black;
@@ -262,6 +266,9 @@ body {
                     }
                 }
             }
+            p:nth-child(3) {
+                width: 100%;
+            }
             ul {
                 display: grid;
                 grid-template-rows: 1fr 1fr;
@@ -270,32 +277,38 @@ body {
                 background: $blk;
                 padding: 20px 38px 35px;
                 text-align: left;
+                width: 85%;
                 li {
-                    background: url('/img/event-icons.png') no-repeat;
+                    @extend %flex-row;
+                    align-items: center;
                     line-height: 0.88rem;
                     list-style: none;
-                    text-indent: 115px;
+                    letter-spacing: 0;
+                    img {
+                        display: block;
+                        width:12% ;
+                        height: 99%;
+                        margin-right: 4.5%;
+                        
+                    }
                     &:nth-child(1){
                         font-family: $font-black;
-                        font-size: 0.72rem;
+                        font-size: 0.74rem;
                     }
+                    /*
+                    &:nth-child(2) {
+                        background-position: 0 -86px;
+                    }
+                    */
                 }
             }
         }
         .btn {
-            position: absolute;
             bottom: -65px;
-            left: 30%;
             font-family: $font-black;
-            /*            
-            font-size: 0.5rem;
-            padding: 15px 0;
-            margin: 0 auto;
-            width: 450px;
-            span {
-                font-size: 0.30rem;
-            }
-            */            
+            line-height: 1;
+            width: 39.5%;
+            z-index: 100;
         }
     }
     .form {
@@ -339,11 +352,11 @@ body {
             label {
                 display: block;
                 padding-left: 0.75%;
-                margin-bottom: 0.3%;
+                margin-bottom: 1.5%;
             }
             input {
                 height: 70px;
-                margin-bottom: 5%;
+                margin-bottom: 3%;
                 font-size: 0.4rem;
                 text-indent: 0.25rem;
                 color: $inp;
@@ -354,12 +367,16 @@ body {
                 text-align: center;
                 margin: 3% auto;
                 max-width: 240px;
-                padding: 25px 25px 7px;
+                padding: 25px 25px;
                 text-transform: uppercase;
                 font-family: $font-medium;
                 font-size: 0.31rem;
                 line-height: 1.2;
                 color: $tty;
+                border: 0;
+                &:hover, &:active {
+                    background: darken($red, 15%);
+                }
             }
             i {
                 font-size: 0.18rem;
@@ -373,18 +390,35 @@ body {
     }
 }
 #footer {
-    background-image: linear-gradient(to bottom, $yll 37%, $blk 37%);
-    padding: 3% 0 6%;
+    position: relative;
+    .yellow {
+        background: $yll;
+        padding-top: 10.1%;
+    }
     .endImg {
         background: url('/img/yellow-curve-up.png') repeat-x;
-        bottom: -130px;
+        bottom: 0px;
         z-index: 1;
     }
+    .black {
+        position: relative;
+        margin-top: -7.2%;
+        z-index: 10;
+        padding-bottom: 6.8%;
+    }
+    
+
+    /*
+
+    background-image: linear-gradient(to bottom, $yll 40%, $blk 40%);
+    padding: 3% 0 6%;
+    line-height: 0;
     img {
         position: relative;
         width: 36vw;
         z-index: 10;
     }
+    */
 }
 
 /*
