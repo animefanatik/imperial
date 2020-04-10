@@ -43,13 +43,13 @@ body {
     max-width: 450px;
     margin: 11% auto 0;
     color: $yll;
-    font-size: 0.40rem;
+    font-size: 0.48rem;
     text-decoration: none;
     position: relative;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     span {
         display: block;
-        font-size: 0.25rem;
+        font-size: 0.28rem;
     }
     img {
         background: url('/img/hand.png') no-repeat;
@@ -63,7 +63,7 @@ body {
 #header, #footer {
     background: $blk;
     img {
-        width: 33.85vw;
+        width: 35vw;
         min-width: 200px;
     }   
 }
@@ -238,6 +238,7 @@ body {
         letter-spacing: 2px;
         line-height: 1.2;
         width: 60%;
+        position: relative;
         .container {
             @extend %flex-col;
             justify-content: center;
@@ -265,9 +266,9 @@ body {
                 display: grid;
                 grid-template-rows: 1fr 1fr;
                 row-gap: 25px;
-                margin-top:8.5%;
+                margin-top: 7%;
                 background: $blk;
-                padding: 20px 38px;
+                padding: 20px 38px 35px;
                 text-align: left;
                 li {
                     background: url('/img/event-icons.png') no-repeat;
@@ -282,23 +283,108 @@ body {
             }
         }
         .btn {
+            position: absolute;
+            bottom: -65px;
+            left: 30%;
             font-family: $font-black;
+            /*            
             font-size: 0.5rem;
-            padding: 25px 0;
+            padding: 15px 0;
             margin: 0 auto;
+            width: 450px;
             span {
                 font-size: 0.30rem;
             }
-        }            
+            */            
+        }
     }
     .form {
         background: $blk;
         color: $tty;
         width: 40%;
+        font-family: $font-medium;
+        font-size: 0.35rem;
+        text-align: left;
+        padding: 4.5% 0;
+        #brand, form {
+            width: 90%;
+            max-width: 675px;
+            margin: 0 auto;
+        }
+        #brand {
+            display: flex;
+            align-items: end;
+            margin-bottom: 4.3%;
+            img {
+                margin-right: 30px;
+            }
+            .ttw {
+                color: $wht;
+                font-size: 0.37rem;
+                line-height: 0.4rem;
+                font-family: $font-black;
+            }
+            .tty {
+                border-top: 1px solid $yll;
+                font-size: 0.28rem;
+                line-height: 0.7rem;
+                margin-top: 1.5%;
+            }
+        }
+        form {
+            font-size: 0.31rem;
+            label, input {
+                width: 100%;
+            }
+            label {
+                display: block;
+                padding-left: 0.75%;
+                margin-bottom: 0.3%;
+            }
+            input {
+                height: 70px;
+                margin-bottom: 5%;
+                font-size: 0.4rem;
+                text-indent: 0.25rem;
+                color: $inp;
+            }
+            button {
+                display: block;
+                background: $red;
+                text-align: center;
+                margin: 3% auto;
+                max-width: 240px;
+                padding: 25px 25px 7px;
+                text-transform: uppercase;
+                font-family: $font-medium;
+                font-size: 0.31rem;
+                line-height: 1.2;
+                color: $tty;
+            }
+            i {
+                font-size: 0.18rem;
+                font-style: normal;
+                text-transform: capitalize;
+                color: $wht;
+                text-align: center;
+                display: block;
+            }
+        }
     }
 }
 #footer {
-    background-image: linear-gradient(to bottom, $yll 50%, black 50%);
+    background-image: linear-gradient(to bottom, $yll 37%, $blk 37%);
+    padding: 3% 0 6%;
+    .endImg {
+        background: url('/img/yellow-curve-up.png') repeat-x;
+        bottom: -130px;
+        z-index: 1;
+    }
+    img {
+        position: relative;
+        width: 36vw;
+        z-index: 10;
+    }
 }
 
 /*
