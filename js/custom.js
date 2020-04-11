@@ -3,7 +3,11 @@ var cedula = document.getElementById('cedula');
 var telefono = document.getElementById('telefono');
 var email = document.getElementById('email');
 
-function comprobar(){
+/*
+Comprueba que los campos tengan datos.
+No tiene validación por ReGex.
+*/
+function verify(){
     if (nombre.value == ''){
         alert('Campo de nombre no puede estar vacio.');
         nombre.focus();
@@ -29,6 +33,7 @@ function comprobar(){
     return true;
 }
 
+/* Despliega los resultados del formulario */
 function displayResults(){
     var zone = document.querySelector('.form');
     var code = `
@@ -43,11 +48,11 @@ function displayResults(){
         </ul>
     </div>
     `;
-    var focusCode = document.getElementById('results');
     zone.insertAdjacentHTML('beforeend', code);
     window.location.href = "#"+'brand';
 }
 
+/* Agrega envia datos del formulario */
 document.getElementById('formButton').addEventListener('click', function(event){
-    comprobar();
+    verify();
 });

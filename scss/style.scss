@@ -8,6 +8,7 @@
 
 html {
     font-size: 5.15vw;
+    background: $blk;
 }
 body {
     font-family: $font-black;
@@ -16,6 +17,8 @@ body {
     font-weight: 600;
     text-transform: uppercase;
     line-height: 1;
+    max-width: 1920px;
+    margin: 0 auto;
 }
 .fullWidth {
     display:block;
@@ -326,7 +329,7 @@ body {
         }
         #brand {
             display: flex;
-            align-items: end;
+            align-items: center;
             margin-bottom: 4.3%;
             img {
                 margin-right: 30px;
@@ -423,30 +426,14 @@ body {
         z-index: 10;
         padding-bottom: 6.8%;
     }
-    
-
-    /*
-
-    background-image: linear-gradient(to bottom, $yll 40%, $blk 40%);
-    padding: 3% 0 6%;
-    line-height: 0;
-    img {
-        position: relative;
-        width: 36vw;
-        z-index: 10;
-    }
-    */
 }
+@media screen and (min-width: 1920px) {
+    html {
+       font-size: 5.15vw;
+    }
+  }
 
 /*
-
-#head {
-    background: $lbl;
-    padding: 0;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-    position: fixed;
-    top: 0;
-    z-index: 100;
     
     #navHead {
         display: grid;
