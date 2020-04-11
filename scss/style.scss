@@ -100,11 +100,11 @@ body {
             z-index: 10;
         }
         .endImg {
-            background: url('/img/yellow-curve-up.png') repeat-x;
+            background: url('img/yellow-curve-up.png') repeat-x;
         }
     }
     &Mid {
-        background: url('/img/background.jpg') no-repeat bottom fixed;
+        background: url('../img/background.jpg') no-repeat bottom fixed;
         background-size: cover;
         color: $yll;
         padding-top: 11.75%;
@@ -221,7 +221,7 @@ body {
         font-size: 1rem;
         padding-bottom: 5%;
         .endImg {
-            background: url('/img/yellow-curve-down.png') repeat-x;
+            background: url('../img/yellow-curve-down.png') repeat-x;
             top: -54px;
         }
     }
@@ -249,7 +249,7 @@ body {
             margin: 0 auto;
             padding-top: 12%;
             p:nth-child(1){
-                width: 100%;
+                width: 90%;
                 span {
                     letter-spacing: 4px;
                 }
@@ -267,7 +267,7 @@ body {
                 }
             }
             p:nth-child(3) {
-                width: 100%;
+                width: 90%;
             }
             ul {
                 display: grid;
@@ -330,6 +330,7 @@ body {
             margin-bottom: 4.3%;
             img {
                 margin-right: 30px;
+                flex-shrink: 0;
             }
             .ttw {
                 color: $wht;
@@ -361,7 +362,7 @@ body {
                 text-indent: 0.25rem;
                 color: $inp;
             }
-            button {
+            #formButton{
                 display: block;
                 background: $red;
                 text-align: center;
@@ -387,6 +388,22 @@ body {
                 display: block;
             }
         }
+        #results {
+            display: block;
+            width: 80%;
+            margin: 5% auto;
+            font-family: $font-medium;
+            font-size: 0.25rem;
+            p, li {
+                margin-bottom: 0.35rem;
+            }
+            li {
+                list-style: none;
+                i {
+                    color: $wht;
+                }
+            }
+        }
     }
 }
 #footer {
@@ -396,7 +413,7 @@ body {
         padding-top: 10.1%;
     }
     .endImg {
-        background: url('/img/yellow-curve-up.png') repeat-x;
+        background: url('../img/yellow-curve-up.png') repeat-x;
         bottom: 0px;
         z-index: 1;
     }
