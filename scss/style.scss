@@ -20,20 +20,39 @@ body {
     max-width: 1920px;
     margin: 0 auto;
 }
-.fullWidth {
-    display:block;
-    width: 100%;
-}
-.fixWidth {
-    width: 95%;
-    max-width: 1488px;
-    margin: 0px auto;
-}
+
 .endImg {
     display: block;
     position: relative;
     height: 55px;
     bottom: 136px;
+}
+
+%wavy {
+    content: '';
+    display: block;
+    width: 26%;
+    height: 0.5rem;
+    position: absolute;
+    bottom: 0;
+    background: url('../img/white-wavy.png') repeat-x;
+    background-size: contain;
+    margin: 0 0 0.15rem;
+}
+
+.wavyR {
+    position: relative;
+}
+
+.wavyR::after {
+    @extend %wavy;
+    background-position: center right;
+    right: 0;
+}
+.wavyL::before {
+    @extend %wavy;
+    background-position: center left;
+    left: 0;
 }
 
 .btn {
@@ -83,6 +102,9 @@ body {
         padding-top: 7%;
         margin-bottom: -190px;
         p span {display: block;}
+        .wavyR::after {
+            animation: wavy26 5s linear 1;
+        }
         .bigRed {
             margin-bottom: 5.3%;
             strong {
@@ -103,7 +125,7 @@ body {
             z-index: 10;
         }
         .endImg {
-            background: url('img/yellow-curve-up.png') repeat-x;
+            background: url('../img/yellow-curve-up.png') repeat-x;
         }
     }
     &Mid {
@@ -127,6 +149,11 @@ body {
                 font-size: 2.1rem;
                 font-weight: normal;
                 margin: 0.45% 0;
+                &.wavyL::before, &.wavyR::after {
+                    width: 32%;
+                    margin-bottom: 0.3rem;
+                    animation: wavy32 5s linear 1;
+                }
             }
         }
         ul {
@@ -213,6 +240,7 @@ body {
                     }
                 }
             }
+            .fadeItem {opacity: 0;}
             .red img {border-color: $red;}
             .yellow img {border-color: $yll;}
         }
@@ -427,9 +455,30 @@ body {
         padding-bottom: 6.8%;
     }
 }
+
+/* Animaciones */
+.animated {animation-fill-mode: both;}
+@keyframes wavy26 {
+    0% {width: 0%;}
+    20% {width: 26%;}
+    100% {width: 26%;}
+}
+@keyframes wavy32 {
+    0% {width: 0%;}
+    20% {width: 32%;}
+    100% {width: 32%;}
+}
+@keyframes fadeIn {
+    from {opacity: 0; }
+    to {opacity: 1;}
+  }
+.fadeIn {animation-name: fadeIn; animation-duration: 2s !important; animation-delay: 0s;}
+
+
+
 @media screen and (min-width: 1920px) {
     html {
-       font-size: 5.15vw;
+       font-size: 6.1rem;
     }
   }
 
@@ -463,37 +512,9 @@ body {
                 margin-right:10px;
             }
         }
-        a:hover, a:active {
-            text-decoration: underline;
-            color: $lgg;
-        }
         #navHeadSearch {
             @include s(md) {
                 margin: 1rem 0;
-            }
-            form {
-                display:grid;
-                grid-template-columns:1fr 1fr;
-                column-gap:0;
-                width: min-content;
-                float: inline-end;
-                input {
-                    border: 0;
-                    line-height: 1.8rem;
-                    border-radius: 25px 0 0 25px;
-                    width: 190px;
-                    padding-left: 15px;
-                    font-family: $font-main;
-                    font-size: rem(16);
-                }
-                button {
-                    display: block;
-                    background: $wht url(../img/lupa.png) center 4px no-repeat;
-                    border: none;
-                    border-radius: 0 25px 25px 0;
-                    width:40px;
-                    height: 2rem;
-                }
             }
         }
     }
@@ -531,16 +552,6 @@ body {
                     font-size: rem(33);                
                 }
             }
-            .draw {
-                margin: 10px 0;
-                hr {
-                    width: 100%;
-                    height: 1.5px;
-                }
-                h2 {
-                    font-size: rem(14);
-                }
-            }
             h3 {
                 font-family: $font-main;
                 font-weight: 700;
@@ -550,20 +561,6 @@ body {
                     font-size: rem(13.5);                
                 }                
             }
-            #actions {
-                @extend %flex-row;
-                justify-content: space-evenly;
-                margin: 1.5rem;
-                width: 100%;
-                a {
-                    width: 125px;
-                    font-size: rem(14);
-                    font-weight: 500;
-                    font-family: $font-alt;
-                    letter-spacing: 0.025rem; 
-                    padding: 5px 0;                  
-                }
-            }
         }
     }
 }
@@ -571,10 +568,7 @@ body {
     background: $wht;
     color: $blk;
     #categories {
-        h4 {
-            @extend %title1;
-            margin: 0;
-        }
+
         ul{
             @extend %flex-col;
             flex-wrap: wrap;
@@ -592,15 +586,6 @@ body {
                 padding: 0;
                 list-style: none;
             }
-            a {
-                color: $blk;
-                text-decoration: none;
-                line-height: 1.5rem;
-                display: block;
-            }
-            a:hover {
-                text-decoration:underline;
-            }
         }
     }
 }
@@ -615,36 +600,6 @@ body {
         @include s(md) {
             width: 90%;
         }
-        .slick-prev::before, .slick-next::before {
-            font-family: $font-alt;
-            font-size: 2rem;
-            color: $lbl;
-        }
-        .new-libro {
-            text-align: center;
-            .cover {
-                display: block;
-                margin-bottom: 0.5rem;
-                img {
-                    box-shadow: 2px 2px 3px rgba(0,0,0,.5);
-                    margin: 0 auto;
-                }
-            }
-            .title {
-                font-family: $font-alt;
-                font-size: 1rem;
-                text-decoration: none;
-                color: $lbl;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                height: 3rem;
-            }
-            span {
-                font-size: rem(14);
-            }
-        }
     }
 }
 #ebooks-promos {
@@ -654,9 +609,6 @@ body {
         @include s(lg) {
             display: flex;
             flex-direction: column;
-        }
-        h1 {
-            @extend %title-book; margin: 0;
         }
         h4 {
             @extend %title1;
@@ -694,32 +646,6 @@ body {
                  width: 90%;
                  margin: 0 auto $secPad;
              }
-             .packSale, .readInfo .meta {
-                @extend %flex-row;
-                justify-content: space-evenly;
-                align-items: center;
-
-                 &>a {
-                    font-size: rem(12);
-                    font-family: $font-alt;
-                    letter-spacing: 0.025rem;  
-                 }
-             }
-             .packInfo {
-                @extend %flex-col;
-                flex-wrap: nowrap;
-                .packSale {
-                    span {
-                        font-family: $font-alt;
-                        font-size: rem(16);
-                        color: $org;
-                    }
-                    a {
-                        @extend .btn-lbl;
-                        width: 75px;                      
-                    }
-                }
-             }
         }
         .readsArea {
             padding-left: 1.5rem;
@@ -734,55 +660,16 @@ body {
                 @include s(sm) {
                     margin-bottom: 3rem;
                 }
-                .readInfo {
-                    h1 {
-                        margin-bottom: .2rem;
-                    }
-                    p {
-                        display: block;
-                        height: 60px;
-                        overflow: hidden;
-                        margin-top: 10px;
-                    }
-                    p:after {
-                        content: '...';
-                    }
-                    .meta {
-                        ul, li {
-                            font-size: rem(14);
-                            padding: 0;
-                            list-style: none;
-                        }
-                        &>a {
-                            @extend .btn-lbl;
-                            width: 75px;
-                            font-family: $font-alt;
-                            font-size: rem(12);
-                        }
-                    }
-                }
             }
-       }
-       .packsArea .btn-org, .readsArea .btn-grn {
-            font-size: rem(14);
-            font-weight: 700;
-            letter-spacing: 0.025rem;
-            width: max-content;
-            padding: 4px 1rem 0;
-            margin: 0 auto;
-            position: relative;
-            bottom: 0;
        }
     }
 }
 #ebooks-autores {
     background: $blk url(../img/autores-escritores.jpg) center 10vh no-repeat;
-    color: $wht;
-   
+    color: $wht; 
     @include s(sm) {
         background-position: center 20vh;
     }
-    
     #autor-head {
         text-align: center;
         text-shadow: 2px 2px 2px $blk;
@@ -808,15 +695,8 @@ body {
                 font-size: rem(18) ;
             }
         }
-        h3 {
-            font-family: $font-main;
-            font-size: rem(15);
-        }
     }
-    ul, li {
-        padding:0;
-        list-style: none;
-    }
+
     #autor-icons {
         @extend %flex-row;
         justify-content: space-evenly;
@@ -824,113 +704,6 @@ body {
         @include s(sm) {
             flex-wrap: wrap;
         }
-        li {
-            font-family: $font-alt;
-            font-size: rem(24);
-            text-align: center;
-            background: radial-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.1),  rgba(0,0,0,0.0));
-            @include s(lg) {
-                width: 15%;
-                min-width: 100px;
-                font-size: rem(16);
-                margin: 1rem 2rem;
-                img {
-                    width: 100%;
-                }
-            }
-        }
-    }
-    a {
-        @extend %title2;
-        color: $wht;
-        display: block;
-        margin: 2rem auto 0;
-        text-align: center;
     }
 }
-#ebooks-gratis{
-    h1 {
-        @extend %title1;
-        text-align: center;
-        margin: 0 0 2rem;
-        font-size: rem(35);
-        @include s(sm) {
-           font-size: rem(26); 
-        }
-    }
-    #patrocinio {
-        display: block;
-        width: 80%;
-        margin: 2rem auto 0;
-        border: 1px solid rgba(255, 153, 0, 0.2);
-        background: rgba(255, 180, 81, 0.2);
-        padding: .75rem 1.5rem;
-        border-radius: 20px;
-        h2 {
-            margin: 0;
-        }
-        p {
-            margin-bottom: 0;
-        }
-    }
-}
-#piracy{
-    background: $lgg;
-    h3 {
-        @extend %title1;
-        text-align: center;
-        margin-bottom: 2rem;
-        
-    }
-    i { font-weight: 700;}
-}
-
-#footer {
-    background: $lbl;
-    color: $wht;
-    text-align: center;
-    h3 {
-        font-weight: 700;
-        margin: 0;
-        font-family: $font-alt;
-        font-weight: 500;
-    }
-    p {
-        margin: 0;
-        font-size: rem(14);
-        display: block;
-        width: 80%;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-    div {
-         margin: 0 0 2rem;
-
-        a {
-            color: $wht;
-            margin: 10px;
-        }
-    }
-}
-.draw {
-    @extend %flex-row;
-    align-items: center;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-    width: 100%;
-    hr {
-        width: 100%;
-        height: 2px;
-        border: none;
-        background: $wht;
-        margin-top: 7px;
-    }
-    h2 {
-        margin: 0 1rem;
-        font-size: rem(20);
-        letter-spacing: 0.025em;
-        flex-shrink: 0;
-    }
-}    
-
 */

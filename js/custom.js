@@ -1,3 +1,36 @@
+/** Activa animaciones según scroll*/
+
+var waypoint = new Waypoint({
+    element: document.getElementById('waveRight'),
+    handler: function(direction) {
+        $(this.element).addClass('wavyR');
+    },
+    offset: '60%',
+})
+
+var waypoint = new Waypoint({
+    element: document.getElementById('waveBoth'),
+    handler: function(direction) {
+        $(this.element).addClass('wavyL wavyR');
+    },
+    offset: '60%',
+})
+
+
+var continuousElements = document.getElementsByClassName('fadeItem')
+for (var i = 0; i < continuousElements.length; i++) {
+  new Waypoint({
+    element: continuousElements[i],
+    handler: function(direction) {
+        $(this.element).addClass('animated fadeIn');
+    },
+    offset: '90%',
+  })
+}
+
+
+
+/* Formulario y funciones básicas */
 var nombre = document.getElementById('nombre');
 var cedula = document.getElementById('cedula');
 var telefono = document.getElementById('telefono');
