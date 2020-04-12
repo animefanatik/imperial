@@ -193,7 +193,6 @@ body {
                         width: 26%;
                         animation: wavy26 5s linear 1;
                     }
-                    
                 }
             }
         }
@@ -226,7 +225,7 @@ body {
                 .titulo{
                     display: block;
                     width: 39%;
-                    font-size: 0.25rem;
+                    font-size: 24px;
                     font-weight: 600;
                     position: absolute;
                     top: 15px;
@@ -234,6 +233,9 @@ body {
                     background: #000;
                     padding: 12px 0;
                     text-align: center;
+                    @include s(xl){
+                        font-size: 16px;
+                    }
                 }
                 .hablador{
                     @extend %flex-col;
@@ -275,7 +277,7 @@ body {
                             @extend %flex-row;
                             justify-content: center;
                             align-items: center;
-                            font-size: 0.15rem;
+                            font-size: 16px;
                             color:$wht;
                             margin-bottom: 0.5%;
                             .cur {
