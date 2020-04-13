@@ -90,6 +90,9 @@ body {
             width: 265px;
             font-size: 25px;
         }
+        &:hover, &:active {
+            background: lighten($blk, 15%);
+        }
         span {
             display: block;
             font-size: 26px;
@@ -110,6 +113,7 @@ body {
             }
         }
     }
+    .fadeItem {opacity: 0;}
 }
 #header, #footer {
     background: $blk;
@@ -360,7 +364,6 @@ body {
                     }
                 }
             }
-            .fadeItem {opacity: 0;}
             .red img {border-color: $red;}
             .yellow img {border-color: $yll;}
         }
@@ -718,5 +721,5 @@ body {
   }
 // Hack for ie9 y superiores
 @media screen and (min-width:0\0) and (min-resolution: +72dpi) {
-    #bodyMid ul .fadeItem {opacity: 1;}
+    .fadeItem {opacity: 1;}
 }
